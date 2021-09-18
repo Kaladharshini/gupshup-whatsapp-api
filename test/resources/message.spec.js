@@ -203,7 +203,31 @@ describe('MESSAGES', () => {
 				type: "quick_reply",
 				msgid: "qr1",
 				content: {type:"text", header:"Hello", text:"Hello testing", caption:"Select one option"},
-				options: [{type:"text", title:"First"},{type:"text", title:"Second"}, {type:"text", title:"Third"}]
+				options: [{type:"text", title:"First"}, {type:"text", title:"Third😊"}]
+			}
+		}).then((result) => {
+			assert.equal(result.status, 'submitted');
+			done();
+		}).catch(err => done(new Error(JSON.stringify(err))))
+	}).timeout(5000)
+
+	it('Should be able to send message with list options', (done) => {
+		gupshupInstance.message.send({
+			...messagePrefix,
+			message : {
+				"type": "list",
+				"title": "title text",
+				"body": "body text", "msgid": "list1",
+				"globalButtons": [ { "type": "text", "title": "Global button" } ],
+				"items": [ { "title": "first Section", "subtitle": "first Subtitle",
+					"options":
+						[ 	{ "type": "text", "title": "row 1"},
+							{ "type": "text", "title": "row 2"},
+							{ "type": "text", "title": "row 3"},
+							{ "type": "text", "title": "row 4"},
+							{ "type": "text", "title": "row 5"},
+							{ "type": "text", "title": "row 6" },
+							{ "type": "text", "title": "row 7☺"}] } ]
 			}
 		}).then((result) => {
 			assert.equal(result.status, 'submitted');

@@ -1,5 +1,5 @@
 {
-	"name": "gupshup-whatsapp-api",
+	"name": "@weunlearn/gupshup-whatsapp-api",
 	"version": "1.0.2",
 	"description": "An unofficial library to help with the usage of GupShup WhatsApp APIs(v2) for messages and user opt-ins",
 	"main": "dist/gupshup",

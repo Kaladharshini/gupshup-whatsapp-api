@@ -277,3 +277,31 @@ client.message.send({
 }).catch(err => {
 	console.log("Quick reply message err:", err)
 })
+
+// Send List Option Message
+client.message.send({
+	channel : "whatsapp",
+	source : "917834811114",
+	destination : "919876543210",
+	'src.name': "GupshupAppTest",
+	message : {
+		"type": "list",
+		"title": "title text",
+		"body": "body text", "msgid": "list1",
+		"globalButtons": [ { "type": "text", "title": "Global button" } ],
+		"items": [ { "title": "first Section", "subtitle": "first Subtitle",
+			"options":
+				[ 	{ "type": "text", "title": "row 1"},
+					{ "type": "text", "title": "row 2"},
+					{ "type": "text", "title": "row 3"},
+					{ "type": "text", "title": "row 4"},
+					{ "type": "text", "title": "row 5"},
+					{ "type": "text", "title": "row 6" },
+					{ "type": "text", "title": "row 7☺"}] } ]
+	}
+}).then((response) => {
+	console.log("List message sent", response)
+}).catch(err => {
+	console.log("List message err:", err)
+})
+

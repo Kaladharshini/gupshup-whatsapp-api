@@ -60,6 +60,22 @@ interface QuickReplyOptions {
 	title: string
 }
 
+interface GlobalButtons {
+	type: string
+	title: string
+}
+
+interface ItemOptions {
+	type: string
+	title: string
+	description?: string
+	postbackText?: string
+}
+
+interface ItemArray {
+	title: string
+	options: [ItemOptions]
+}
 
 export interface MessagePayload {
 	[key: string]: any; // For fixing Query String type error
@@ -85,6 +101,8 @@ export interface MessagePayload {
 	content?: QuickReplyContent
 	options?: [QuickReplyOptions]
 
+	globalButtons?: GlobalButtons
+	items?: ItemArray
 }
 
 export interface MessageBody {
